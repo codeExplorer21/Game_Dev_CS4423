@@ -8,12 +8,14 @@ public class ItemCollector : MonoBehaviour
     private int coins = 0;
     [SerializeField] private Text coinsText;
 
+
     //This function checks if a tag has been detected
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            Destroy(collision.gameObject); //this removes gameobjects (coins) when in contact with the player
+            collision.GetComponent<coinCollect>().coinNoise();
+            Destroy(collision.gameObject,1f); //this removes gameobjects (coins) when in contact with the player and duration of before item is deleted
             coins++;
             coinsText.text = "Coins: " + coins;
         }
