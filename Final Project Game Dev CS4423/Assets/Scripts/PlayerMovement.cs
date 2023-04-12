@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
       dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * playerMoveSpeed, rb.velocity.y);
       
-      if(Input.GetKeyDown("space") && Grounded())
+      if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && Grounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, playerJumpForce);
         }
