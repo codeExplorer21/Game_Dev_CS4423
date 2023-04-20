@@ -6,7 +6,7 @@ public class EnemiesHealth : MonoBehaviour
 
 {
    private Animator anim;
-    private BoxCollider2D collider;
+    //private BoxCollider2D collider;
     //Heath of enemy
     private int maxHealth = 3;
     public int currentHealth;
@@ -16,7 +16,7 @@ public class EnemiesHealth : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        collider = GetComponent<BoxCollider2D>();
+        //collider = GetComponent<BoxCollider2D>();
         //assigns enemy full health at start of game
         currentHealth = maxHealth;
     }
@@ -45,6 +45,8 @@ public class EnemiesHealth : MonoBehaviour
         //This disables enemies script
         this.enabled = false;
         //This disables enemies 2d collider
-        collider.enabled = false;
+        //collider.enabled = false;
+
+        Destroy(gameObject);
     }
 }
