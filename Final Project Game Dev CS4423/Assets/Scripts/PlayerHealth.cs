@@ -9,14 +9,17 @@ public class PlayerHealth : MonoBehaviour
     //[SerializeField] private Text heartTxt;
 
     private PlayerLife playerLife;
-    public HeartText heartText;
+    //public HeartText heartText;
+    public GameObject heartChange;
     private int maxHealth = 3;
     public int currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        heartText = FindObjectOfType<HeartText>();
+        //heartText = FindObjectOfType<HeartText>();
+
+        //heartChange = GetComponent<Text>();
 
         //collider = GetComponent<BoxCollider2D>();
         currentHealth = maxHealth;
@@ -26,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
     //This function handles when the player takes damage from enemy
     public void TakeDamage(int damage)
     {
-        string minus = "min";
+        string minus = "damage";
         //Debug.Log("Players Health: " + currentHealth);
         //take enemy health away
         currentHealth -= damage;
@@ -42,10 +45,10 @@ public class PlayerHealth : MonoBehaviour
             playerLife.RestartLevel();
         }
 
-        //heartText.hearts("min", currentHealth);
+        heartText(minus);
     }
 
-    /*
+    
     public void heartText(string check)
     {
         string minus = "damage";
@@ -53,9 +56,9 @@ public class PlayerHealth : MonoBehaviour
         //check if the player receives health or minus health and updates heart text
         if (check.Equals(minus))
         {
-            heartTxt.text = "X " + currentHealth;
+            heartChange.GetComponent<Text>().text = "X " + currentHealth;
         }
     }
-    */
+    
 
 }
