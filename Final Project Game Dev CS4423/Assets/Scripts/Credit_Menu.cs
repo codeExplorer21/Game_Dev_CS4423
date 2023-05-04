@@ -12,6 +12,8 @@ public class Credit_Menu : MonoBehaviour
         SceneManager.LoadScene("Level_1");
     }
 
+    
+
     //Return to Main Menu
     public void MainMenu()
     {
